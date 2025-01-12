@@ -1,0 +1,9 @@
+.title {
+  font-size: 26px;
+  font-weight: 900;
+  font-family: var(--mantine-font-family);
+}
+
+.form {
+  margin-top: 30px;
+} 

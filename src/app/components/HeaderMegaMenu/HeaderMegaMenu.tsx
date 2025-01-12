@@ -35,6 +35,7 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import Image from 'next/image';
 import classes from './HeaderMegaMenu.module.css';
+import { useRouter } from 'next/navigation';
 
 const mockdata = [
     {
@@ -65,6 +66,7 @@ export function HeaderMegaMenu() {
     const theme = useMantineTheme();
     const { colorScheme, toggleColorScheme } = useMantineColorScheme();
     const dark = colorScheme === 'dark';
+    const router = useRouter();
 
     const links = mockdata.map((item) => (
         <UnstyledButton className={classes.subLink} key={item.title}>
@@ -134,8 +136,12 @@ export function HeaderMegaMenu() {
                         >
                             {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
                         </ActionIcon>
-                        <Button variant="outline">Login</Button>
-                        <Button>Inscreva-se</Button>
+                        <Button variant="outline" onClick={() => router.push('/login')}>
+                            Login
+                        </Button>
+                        <Button onClick={() => router.push('/register')}>
+                            Inscreva-se
+                        </Button>
                     </Group>
 
                     <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -174,8 +180,12 @@ export function HeaderMegaMenu() {
                     <Divider my="sm" />
 
                     <Group justify="center" grow pb="xl" px="md">
-                        <Button variant="outline">Login</Button>
-                        <Button>Inscreva-se</Button>
+                        <Button variant="outline" onClick={() => router.push('/login')}>
+                            Login
+                        </Button>
+                        <Button onClick={() => router.push('/register')}>
+                            Inscreva-se
+                        </Button>
                     </Group>
                 </ScrollArea>
             </Drawer>
