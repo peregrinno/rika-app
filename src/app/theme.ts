@@ -24,36 +24,6 @@ export const theme = createTheme({
       defaultProps: {
         color: 'rika'
       }
-    },
-    Title: {
-      styles: {
-        root: {
-          color: '#2e2e2e',
-          '[data-mantine-color-scheme=dark]': {
-            color: '#ffffff'
-          }
-        }
-      }
-    },
-    Text: {
-      styles: {
-        root: {
-          color: '#2e2e2e',
-          '[data-mantine-color-scheme=dark]': {
-            color: '#ffffff'
-          }
-        }
-      }
-    },
-    Body: {
-      styles: {
-        root: {
-          backgroundColor: '#ffffff',
-          '[data-mantine-color-scheme=dark]': {
-            backgroundColor: '#000000'
-          }
-        }
-      }
     }
   }
 }); 
