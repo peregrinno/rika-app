@@ -55,13 +55,13 @@ export default function LoginPage() {
 
     return (
         <Container size={420} my={40}>
-            <Title ta="center" className={classes.title} c={dark ? 'dimmed' : 'dark.6'}>
+            <Title ta="center" className={classes.title} c={dark ? 'white' : 'dark.8'}>
                 Bem-vinda de volta!
             </Title>
-            <Text c={dark ? 'dimmed' : 'dark.6'} size="sm" ta="center" mt={5}>
+            <Text c={dark ? 'gray.1' : 'dark.6'} size="sm" ta="center" mt={5}>
                 Não tem uma conta ainda?{' '}
                 <Link href="/register" passHref>
-                    <Anchor size="sm" component="span">
+                    <Anchor size="sm" component="span" c={dark ? 'blue.4' : 'blue.6'}>
                         Criar conta
                     </Anchor>
                 </Link>
@@ -72,7 +72,7 @@ export default function LoginPage() {
                     label="Email"
                     placeholder="seu@email.com"
                     required
-                    c={dark ? 'dimmed' : 'dark.6'}
+                    c={dark ? 'gray.4' : 'dark.6'}
                     {...form.getInputProps('email')}
                 />
                 <PasswordInput
@@ -80,7 +80,7 @@ export default function LoginPage() {
                     placeholder="Sua senha"
                     required
                     mt="md"
-                    c={dark ? 'dimmed' : 'dark.6'}
+                    c={dark ? 'gray.4' : 'dark.6'}
                     {...form.getInputProps('password')}
                 />
                 <Button type="submit" fullWidth mt="xl">

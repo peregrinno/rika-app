@@ -1,6 +1,6 @@
 {
   "name": "rika-app",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -32,6 +32,7 @@
     "@types/axios": "^0.9.36",
     "@types/react-input-mask": "^3.0.6",
     "axios": "^1.7.9",
+    "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "input-mask-react": "^1.0.7",
     "next": "15.1.4",
