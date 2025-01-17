@@ -1,6 +1,6 @@
 'use client';
 
-import { TextInput, PasswordInput, Button, Container, Title, Text, Anchor } from '@mantine/core';
+import { TextInput, PasswordInput, Button, Container, Title, Text, Anchor, LoadingOverlay } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
 import { useRouter } from 'next/navigation';
@@ -9,6 +9,7 @@ import { authService } from '@/services/auth';
 import classes from './register.module.css';
 import { useMantineColorScheme } from '@mantine/core';
 import { IMaskInput } from 'react-imask';
+import { useState } from 'react';
 
 interface FormValues {
     fullName: string;
@@ -45,7 +46,10 @@ export default function RegisterPage() {
         form.setFieldValue('phone', value);
     };
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleSubmit = async (values: FormValues) => {
+        setIsLoading(true);
         try {
             const registerData = {
                 name: values.fullName,
@@ -67,6 +71,8 @@ export default function RegisterPage() {
                 message: 'Erro ao criar conta',
                 color: 'red',
             });
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -102,7 +108,7 @@ export default function RegisterPage() {
                     mt="md"
                     c={dark ? 'dimmed' : 'dark.6'}
                     component={IMaskInput}
-                    mask="(00) 00000-0000"
+                    mask="(00) 00000-0000" //fix: ignore
                     {...form.getInputProps('phone')}
                 />
                 <TextInput
@@ -129,8 +135,13 @@ export default function RegisterPage() {
                     c={dark ? 'dimmed' : 'dark.6'}
                     {...form.getInputProps('confirmPassword')}
                 />
-                <Button type="submit" fullWidth mt="xl">
-                    Criar conta
+                <Button
+                    type="submit"
+                    fullWidth
+                    mt="xl"
+                    loading={isLoading}
+                >
+                    {isLoading ? 'Criando conta...' : 'Criar conta'}
                 </Button>
             </form>
         </Container>
